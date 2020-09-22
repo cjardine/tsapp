@@ -1,0 +1,52 @@
+@keyframes drop-in {
+  from {
+    height: 0;
+  }
+
+  to {
+    height: 2px;
+  }
+}
+
+@keyframes bar-animation {
+  from {
+    left: 0;
+    width: 0;
+    transition: left ease-in-out 500ms, width ease-in-out 500ms;
+  }
+  50% {
+    left: 25%;
+    width: 50%;
+    transition: left ease-in-out 500ms, width ease-in-out 500ms;
+  }
+  to {
+    left: 100%;
+    width: 0;
+  }
+}
+
+:host {
+  flex: 0 0 auto !important;
+  width: 100%;
+  animation-name: drop-in;
+  animation-delay: 100ms;
+  animation-duration: 100ms;
+  animation-iteration-count: 1;
+  animation-fill-mode: both;
+  height: 2px;
+
+  .loading-track {
+    position: relative;
+    background-color: #ccc;
+    height: 100%;
+
+    .loading-bar {
+      position: absolute;
+      height: 100%;
+      animation-name: bar-animation;
+      animation-duration: 2000ms;
+      animation-iteration-count: infinite;
+      background-color: #f00;
+    }
+  }
+}

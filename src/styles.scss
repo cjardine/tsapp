@@ -1,1 +1,301 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;400;700&display=swap');
+//does not work with colors containing alpha
+@function encode-color($string) {
+  @if type-of($string) == 'color' {
+    $hex: str-slice(ie-hex-str($string), 4);
+    $string: unquote("#{$hex}");
+  }
+  $string: '%23' + $string;
+  @return $string;
+}
+
+@keyframes navArrowIn {
+  from {
+    width: 0;
+  }
+  50% {
+    width: 0;
+  }
+  to {
+  }
+}
+
+@mixin right-arrow($color) {
+  background-image: url('data:image/svg+xml;utf8,<svg width="50" height="50" xmlns="http://www.w3.org/2000/svg"><g><path d="M 0,0 50,25 0,50 0,0 Z" style="fill: #{encode-color($color)}; "/></g></svg>');
+}
+
+html,
+body,
+app-root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+html {
+  font-family: 'Noto Sans TC', sans-serif;
+  font-size: 1.5rem;
+}
+
+body,
+app-root {
+  flex: 1 1 auto;
+}
+
+app-root {
+  flex-direction: column;
+}
+
+
+main {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+  width: 100%;
+}
+
+div.app-container {
+  flex: 1 1 auto;
+  flex-direction: column;
+  display: flex;
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: 100%;
+  width: 100%;
+
+  & > router-outlet {
+    display: none;
+  }
+
+  & > * {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    height: 100%;
+    width: 100%;
+  }
+
+  section {
+    justify-content: center;
+    border-top: 1px solid #e0e0e0;
+    padding: 24px 0;
+    width: 100%;
+
+    &:nth-child(2n + 1) {
+      background: #f0f0f0;
+    }
+
+
+    &.banner {
+      border-top: none;
+      padding: 48px 0;
+      color: white;
+      position: relative;
+      background-color: transparent;
+
+      &:before {
+        content: ' ';
+        background-image: url("assets/images/pexels-ramesh-ravi-4097944.jpg");
+        background-size: cover;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.2;
+        z-index: -1;
+      }
+
+      &:after {
+        content: ' ';
+        background-color: royalblue;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -2;
+      }
+
+      > * {
+        z-index: 100;
+      }
+
+      h1,
+      h2,
+      p {
+        text-align: center;
+      }
+
+      h1 {
+        font-size: 3rem;
+        font-weight: 300;
+      }
+
+      h2 {
+        font-size: 2rem;
+      }
+
+      p {
+        font-size: 1.5rem;
+        text-align: center;
+      }
+    }
+
+    div.content {
+      width: auto;
+      padding: 20px 10%;
+    }
+  }
+}
+
+header {
+  background: midnightblue;
+  color: white;
+  flex: 0 0 auto;
+  padding: 12px;
+  display: flex;
+  flex-direction: row;
+
+  img {
+    flex: 0 0 auto;
+    height: 48px;
+    //width: 200px;
+  }
+
+  h1 {
+    flex: 1 1 auto;
+    display: flex;
+    align-items: center;
+    padding: 0 12px;
+    margin: 0;
+  }
+}
+
+nav {
+  background-color: #f0f0fc;
+  flex: 0 0 auto;
+  border-right: 1px solid midnightblue;
+  height: 100%;
+  max-width: 20%;
+
+  ul,
+  li {
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+
+    a {
+      font-size: 0.8rem;
+      padding: 12px 48px;
+      display: block;
+      text-decoration: none;
+      font-weight: bold;
+      transition: all ease-in-out 0.2s;
+      position: relative;
+
+      &,
+      &:link,
+      &:hover,
+      &:visited,
+      &:active {
+        color: midnightblue;
+      }
+
+      &:hover {
+        background: midnightblue;
+        color: white;
+      }
+
+
+      &.active {
+        background: #113;
+        color: white;
+
+        &:before,
+        &:after {
+          animation: navArrowIn;
+          animation-duration: 0.4s;
+          background-position: center right;
+          background-size: 100% 100%;
+          background-repeat: no-repeat;
+          content: ' ';
+          display: block;
+          width: 12px;
+          height: 100%;
+          position: absolute;
+          z-index: 100;
+        }
+
+        &:before {
+          @include right-arrow(#99c);
+          top: 0;
+          left: 0;
+        }
+
+        &:after {
+          @include right-arrow(#113);
+          top: 0;
+          left: 100%;
+        }
+      }
+    }
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  margin-top: 0;
+}
+
+h1 {
+
+}
+
+p {
+  font-weight: 300;
+}
+
+.super {
+  margin-bottom: 0;
+}
+
+.word-mark {
+  font-weight: 100;
+
+  strong {
+    font-weight: 400;
+  }
+}
+
+aside {
+  padding: 12px;
+  border: 1px solid #ddd;
+  background: #fcfcfc;
+  color: #404040;
+  font-size: 0.8rem;
+  float: right;
+  width: 20%;
+  min-width: 240px;
+  margin: 12px 0 12px 12px;
+}
+
+dl {
+  dt {
+
+  }
+
+  dd {
+    font-weight: 300;
+    margin-left: 24px;
+  }
+}

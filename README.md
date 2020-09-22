@@ -1,5 +1,7 @@
 # Tsapp
 
+[TypeScript official branding](https://www.typescriptlang.org/branding/)
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.8.
 
 ## Development server

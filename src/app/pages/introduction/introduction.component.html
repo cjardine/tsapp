@@ -1,0 +1,79 @@
+<section class="banner">
+  <div class="content">
+    <h1 class="word-mark super">Introducing: <strong>Type</strong>Script</h1>
+  </div>
+  <app-parti-on-canvas [options]="[emitter1, emitter2, emitter3, emitter4]" [blendMode]="blendMode"></app-parti-on-canvas>
+  <select #blendModeSelect
+          (change)="blendMode = blendModeSelect.value">
+    <option *ngFor="let mode of blendModes"
+            [value]="mode">{{mode}}</option>
+  </select>
+
+</section>
+<section>
+  <div class="content">
+    <h2>What is TypeScript?</h2>
+    <p>TypeScript is Javascript+.</p>
+    <p>That is to say, that valid Javascript is valid TypeScript. One of the main benefits of TypeScript is how it can
+      improve developer experience/ergonomics, especially in a large project.</p>
+    <aside>
+      <h4>What is <strong>typing</strong>?</h4>
+      <p>Typing can be described as how the type of an object (ie. <code>string</code>, <code>number</code>, <code>boolean</code>,
+        etc.) is treated at compilation time and run time.</p>
+      <dl>
+        <dt>Strong vs Weak</dt>
+        <dd><strong>Strongly</strong> typed languages typically define an object's type at object instantiation, whereas
+          <strong>Weakly</strong> typed languages do not.
+        </dd>
+        <dt>Static vs Dynamic</dt>
+        <dd><strong>Statically</strong> typed languages typically do not allow you to reassign an object to a different
+          type during code execution, whereas
+          <strong>Dynamically</strong> typed languages do.
+        </dd>
+        <dt>Strict</dt>
+        <dd><strong>Strict</strong> languages are both Strongly and Statically typed</dd>
+      </dl>
+      <p>Javascript is both <strong>Weak</strong> and <strong>Dynamic</strong> in it's current popular version (<code>ES202</code>
+        at time of writing).</p>
+    </aside>
+    <p>This improved experience is mainly achieved by adding <strong>strict typing</strong> to Javascript, similar to
+      languages like Java, C#, etc.</p>
+    <p>Benefits include:</p>
+    <ul>
+      <li>
+        <p><strong>improved tooling</strong>, as typing removes a lot of ambiguity from the code, leaving
+          IDEs/editors/compilers with
+          well defined objects for code hinting, syntax coloring, etc.</p>
+      </li>
+
+      <li>
+        <p><strong>earlier bug detection</strong>, as type bugs are not typically found until runtime, often ensuring
+          refactoring goes smoother.</p>
+      </li>
+
+      <li>
+        <p><strong>supported by most popular JS frameworks</strong> (and even preferred/recommended in some cases), like
+          Vue.js, ReactJS and Angular.</p>
+      </li>
+
+      <li>
+        <p><strong>transpiles to many versions of Javascript</strong>, allowing you to use modern language features in
+          development and converting it at compilation to the required target for backwards compatibility (similar to
+          Babel).</p>
+      </li>
+
+      <li>
+        <p><strong>can be used incrementally in existing Javascript projects</strong>, allowing you to gradually
+          transition to TypeScript as you project evolves.</p>
+      </li>
+
+      <li>
+        <p><strong>code becomes more self-documenting</strong>, reducing developer fatigue.</p>
+      </li>
+
+      <li>
+        <p><strong>promotes many application design best practices</strong>, including the <strong>SOLID</strong> principles.</p>
+      </li>
+    </ul>
+  </div>
+</section>

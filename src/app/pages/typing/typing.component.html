@@ -1,0 +1,27 @@
+<section class="banner">
+  <div class="content">
+    <h1 class="super">Typing</h1>
+  </div>
+</section>
+<section>
+  <div class="content">
+    <h3>Defining a variable:</h3>
+    <app-code-block [code]="sr.VARIABLE_JS" [language]="languages.JAVASCRIPT"></app-code-block>
+    <app-code-block [code]="sr.VARIABLE_TS" [language]="languages.TYPESCRIPT"></app-code-block>
+  </div>
+</section>
+<section>
+  <div class="content">
+    <h3>Defining a function:</h3>
+    <app-code-block [code]="sr.FUNCTION_JS" [language]="languages.JAVASCRIPT"></app-code-block>
+    <app-code-block [code]="sr.FUNCTION_TS" [language]="languages.TYPESCRIPT"></app-code-block>
+  </div>
+</section>
+<section>
+  <div class="content">
+    <h3>Defining an object:</h3>
+    <p>Usually better implemented as an Interface, see <a [routerLink]="['/type']" >Custom Type Declaration</a></p>
+    <app-code-block [code]="sr.OBJECT_JS" [language]="languages.JAVASCRIPT"></app-code-block>
+    <app-code-block [code]="sr.OBJECT_TS" [language]="languages.TYPESCRIPT"></app-code-block>
+  </div>
+</section>
